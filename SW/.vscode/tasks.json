@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "PlatformIO",
+            "task": "Upload",
+            "problemMatcher": [
+                "$platformio"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "xtensa-lx106-elf-gcc.exe build active file",
+            "command": "C:/Users/par/.platformio/packages/toolchain-xtensa/bin/xtensa-lx106-elf-gcc.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-mlongcalls",
+                "-mtext-section-literals"
+            ],
+            "options": {
+                "cwd": "C:/Users/par/.platformio/packages/toolchain-xtensa/bin"
+            }
+        }
+    ]
+}

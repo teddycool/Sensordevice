@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+     
+      function drawChart() {
+      var jsonData = $.ajax({
+          url: "newav8temp.php",
+          dataType: "json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data = new google.visualization.DataTable(jsonData);
+
+        var options = {
+          title: 'Temperaturer det senaste dygnet',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+       chart.draw(data, options);
+       
+          
+      //chart.draw(data, {width: 400, height: 240});
+      var jsonData1 = $.ajax({
+          url: "av8bat.php",
+          dataType: "json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data1 = new google.visualization.DataTable(jsonData1);
+
+        var options1 = {
+          title: 'Batteristatus senaste dygnet',
+          legend: { position: 'bottom' }
+        };
+
+        var chart1 = new google.visualization.LineChart(document.getElementById('chart1_div'));
+
+       chart1.draw(data1, options1);
+       
+       //chart.draw(data, {width: 400, height: 240});
+      var jsonData2 = $.ajax({
+          url: "av8wifi.php",
+          dataType: "json",
+          async: false
+          }).responseText;
+          
+      // Create our data table out of JSON data loaded from server.
+      var data2 = new google.visualization.DataTable(jsonData2);
+
+        var options1 = {
+          title: 'WiFi uppkopplings försök senaste dygnet',
+          legend: { position: 'bottom' }
+        };
+
+        var chart2 = new google.visualization.LineChart(document.getElementById('chart2_div'));
+
+       chart2.draw(data2, options1);
+      //chart.draw(data, {width: 400, height: 240});
+    }
+    </script>
+    <meta charset= "utf-8" />
+  </head>
+  <body>
+    <!--Div that will hold the chart-->
+    <h1>Sensorvärden för Alvarsvägen 8 </h1>   
+    <p>Värdena visas som medelvärden av sensorutläsningarna under varje timme med det senaste värdet längst till höger. </p>
+    
+    <div id="chart_div" style="width: 1024px; height: 500px" align ="center"></div>
+    <div id="chart1_div" style="width: 1024px; height: 500px" align ="center"></div>
+     <div id="chart2_div" style="width: 1024px; height: 500px" align ="center"></div>
+  </body>
+</html>
