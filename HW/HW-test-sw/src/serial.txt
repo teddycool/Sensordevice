@@ -1,0 +1,43 @@
+Connecting to
+Ev39_asus
+.....
+WiFi connected
+192.168.1.230
+Connecting to: www.sundback.com
+Connected and ready to make measurements....
+Setting up power to sensors...
+Waiting to stabilize...
+Locating devices...Found 1 devices.
+Found device 0 with address: 287689CE0B0000E1
+Conversion complete. Reading and sending data
+Created http request:
+GET /sensors/post_value.php?devid=1&devname=av8_s1&&measm=otemp&value=-127.00&unit=C HTTP/1.1
+Host: www.sundback.com
+Connection: close
+
+
+Created http request:
+GET /sensors/post_value.php?devid=1&devname=av8_s1&&measm=ftemp&value=-127.00&unit=C HTTP/1.1
+Host: www.sundback.com
+Connection: close
+
+
+Reading battery voltage on A0...
+573
+3.14V
+Created http request:
+GET /sensors/post_value.php?devid=1&devname=av8_s1&&measm=bat&value=3.14&unit=V HTTP/1.1
+Host: www.sundback.com
+Connection: close
+
+
+Created http request:
+GET /sensors/post_value.php?devid=1&devname=av8_s1&&measm=wifi&value=5&unit=counts HTTP/1.1
+Host: www.sundback.com
+Connection: close
+
+
+
+Turning off power to pins...
+Going to sleep....
+Will sleep for 3600 seconds...
